@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function removeUser(username){
+        $.getJSON('/mapi/' + $('#username').val() + '/remove'),function(data){
+                alert(data['msg'])
+                if (data['state'] == 200){
+                    window.location.href='?page=users'
+                }else{
+
+                }
+                $('#reg').active = true
+
+            })
+    }
+</script>
+
+</body>
+</html>

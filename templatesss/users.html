@@ -1,0 +1,63 @@
+
+<div class="row-content am-cf">
+    <div class="row">
+
+        <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+            <div class="widget am-cf">
+                <div class="widget-head am-cf">
+                    <div class="widget-title am-fl">用戶列表</div>
+
+                    <div class="widget-function am-fr">
+                        <a href="?page=addUser" class="am-icon-plus">新增</a>
+                    </div>
+                </div>
+                <div class="widget-body  widget-body-lg am-fr">
+
+                    <table width="100%" class="am-table am-table-compact am-table-striped tpl-table-black " id="example-r">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>用戶名</th>
+                                <th>最後登錄</th>
+                                <th>權限組</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in page.users %}
+                                <tr class="gradeX">
+                                    <td>{{ user.id }}</td>
+                                    <td>{{ user.username }}</td>
+                                    <td>{{ user.last_login }}</td>
+                                    <td>{{ user.group }}</td>
+                                    <td>
+                                        <div class="tpl-table-black-operation">
+                                            <a href="?page=updateUser&username={{ user.username }}">
+                                                <i class="am-icon-pencil"></i> 编辑
+                                            </a>
+                                            <a href="../mapi/{{ user.username }}/remove" class="tpl-table-black-operation-del">
+                                                <i class="am-icon-trash"></i> 删除
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+
+                            <!-- more data -->
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+</div>
+<script src="../static/js/amazeui.min.js"></script>
+<script src="../static/js/amazeui.datatables.min.js"></script>
+<script src="../static/js/dataTables.responsive.min.js"></script>
+<script src="../static/js/app.js"></script>
